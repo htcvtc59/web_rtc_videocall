@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="main.js"></script>
+
+    <title>Web RTC</title>
+</head>
+
+<body>
+
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+            <div id="chat-area1" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 
+                    mdc-layout-grid__cell--align-top">
+
+                <h3>Online</h3>
+                <ul class="mdc-list mdc-card" id="listUser">
+
+                </ul>
+
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 
+                    mdc-layout-grid__cell--align-top">
+                <div id="chat-area2" class="mdc-layout-grid">
+                    <div class="mdc-layout-grid__inner">
+                        <h3 id="my-peer" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 
+                                mdc-layout-grid__cell--align-top">
+
+                        </h3>
+                        <video id="localStream" controls class="mdc-card mdc-layout-grid__cell 
+                                mdc-layout-grid__cell--span-12
+                                 mdc-layout-grid__cell--align-top"></video>
+                        <video id="remoteStream" controls class="mdc-card mdc-layout-grid__cell 
+                                mdc-layout-grid__cell--span-12 
+                                mdc-layout-grid__cell--align-top"></video>
+                    </div>
+                </div>
+                <!-- End Grid video -->
+                <div id="chat-area3" class="mdc-layout-grid">
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="remoteId">
+                                <label class="mdl-textfield__label" for="remoteId">Remote ID...</label>
+                            </div>
+
+                            <button class="mdc-button mdc-button--raised mdc-button--primary" id="btnCall">
+                                    Call
+                                    </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Remote -->
+
+                <div class="mdc-layout-grid" id="signup-area">
+                    <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="txtUser">
+                                <label class="mdl-textfield__label" for="txtUser">Username...</label>
+                            </div>
+                            <button class="mdc-button mdc-button--raised mdc-button--primary" id="btnsignup">
+                                    Sign
+                                    </button>
+                        </div>
+                    </div>
+                </div>
+                <!--End Sign up -->
+            </div>
+        </div>
+    </div>
+
+    <div class="mdc-snackbar" aria-hidden="true" aria-live="assertive" aria-atomic="true">
+        <div class="mdc-snackbar__text"></div>
+        <div class="mdc-snackbar__action-wrapper">
+            <button type="button" class="mdc-button mdc-snackbar__action-button"></button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>
+        window.mdc.autoInit();
+    </script>
+</body>
+
+</html>
